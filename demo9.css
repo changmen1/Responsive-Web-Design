@@ -1,0 +1,21 @@
+
+h1,h2{
+    text-align: center;
+}
+
+
+
+
+
+img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+}
+
+#img-caption {
+    text-align: center;
+}

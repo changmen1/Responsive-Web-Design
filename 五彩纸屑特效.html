@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./五彩纸屑特效.css">
+</head>
+
+<body>
+    <div class="button-wrapper">
+        <button class="confetti-button">Yay🎉</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        document.getElementsByClassName("confetti-button")[0].addEventListener("click", () => {
+            // confetti()
+            let cancas = document.createElement("canvas");
+            cancas.width = 600;
+            cancas.height = 600;
+            let container = document.getElementsByClassName("button-wrapper")[0];
+            container.appendChild(cancas);
+
+            let confetti_button = confetti.create(cancas);
+            confetti_button(
+                {
+                    particleCount: 100,
+                    startVelocity: 30,
+                    spread: 360,
+                    origin: {
+                        x: Math.random(),
+                        // since they fall down, start a bit higher than random
+                        y: Math.random() - 0.2
+                    }
+                }
+            ).then(() => container.removeChild(cancas));
+        })
+    </script>
+</body>
+
+</html>

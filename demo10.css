@@ -1,0 +1,176 @@
+span[class~="sr-only"] {
+    border: 0;
+    /* 
+    clip 属性用于定义元素的可见部分。 
+    设置 span[class~="sr-only"] 
+    选择器的 clip 属性为 rect(1px, 1px, 1px, 1px)。
+    */
+    clip: rect(1px, 1px, 1px, 1px);
+    /* 
+    clip-path 属性决定了 clip 属性应该采用的形状。 
+    设置 clip-path 属性的值为 inset(50%)，
+    在元素内剪切形成一个矩形。
+    */
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0;
+    margin: -1px;
+}
+
+/* 
+:not() 伪选择器用于定位与选择器不匹配的所有元素——在这种情况下，
+我们希望定位没有 sr-only 类的任何 span 元素。 
+这可以确保之前的 span[class~="sr-only"] 类规则不会被覆盖。
+*/
+
+span:not(.sr-only) {
+    font-weight: normal;
+}
+
+
+/* 
+ border-collapse 属性设置为 collapse，
+ 这将允许单元格边框折叠成单个边框，而不是每个单元格周围的边框。 
+ 同时将 border 属性设置为 0 以隐藏边框本身 */
+table {
+    border-collapse: collapse;
+    border: 0;
+    width: 100%;
+    position: relative;
+    margin: 3rem 0;
+}
+
+table caption {
+    color: #356eaf;
+    font-size: 1.3em;
+    font-weight: normal;
+    position: absolute;
+    top: -2.25rem;
+    left: 0.5rem;
+}
+
+tbody td {
+    width: 100vw;
+    min-width: 4rem;
+    max-width: 4rem;
+}
+
+tbody th {
+    width: calc(100% - 12rem);
+}
+
+tr[class="total"] {
+    border: 4px double #0a0a23;
+    font-weight: bold;
+}
+
+tr[class="total"] th {
+    text-align: left;
+    padding: 0.5rem 0 0.25rem 0.5rem;
+}
+
+tr.total td {
+    text-align: right;
+    padding: 0 0.25rem;
+}
+
+/* :nth-of-type() 伪选择器用于根据它们在相同类型的同级中的顺序来定位特定元素 */
+tr.total td:nth-of-type(3) {
+    padding-right: 0.5rem;
+}
+
+tr.total:hover {
+    background-color: #99c9ff;
+}
+
+td[class=current] {
+    /* 文本样式设置为斜体 */
+    font-style: italic;
+}
+
+tr[class=data] {
+    background-image: linear-gradient(to bottom, #dfdfe2 1.845rem, white 1.845rem)
+}
+
+tr.data th {
+    text-align: left;
+    padding-left: 0.5rem;
+    padding-top: 0.3rem;
+}
+
+tr.data th .description {
+    display: block;
+    font-style: italic;
+    font-weight: normal;
+    padding: 1rem 0 0.75rem;
+    margin-right: -13.5rem;
+}
+
+tr.data td {
+    vertical-align: top;
+    padding: 0.3rem 0.25rem 0;
+    text-align: right;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    color: #0a0a23;
+}
+
+h1 {
+    max-width: 37.25rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem;
+}
+
+h1 .flex {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+}
+
+/* :first-of-type 伪选择器用于定位与选择器匹配的第一个元素 */
+h1 .flex span:first-of-type {
+    font-size: 0.7em;
+}
+
+h1 .flex span:last-of-type {
+    font-size: 1.2em;
+}
+
+section {
+    max-width: 40rem;
+    margin: 0 auto;
+    border: 2px solid #d0d0d5;
+}
+
+#years {
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0;
+    color: #fff;
+    background-color: #0a0a23;
+    padding: 0.5rem calc(1.25rem + 2px) 0.5rem 0;
+    margin: 0 -2px;
+    z-index: 999;
+}
+
+/* 通过创建 #years span[class] 选择器来设置 #years 元素中的文本样式 */
+#years span[class] {
+    font-weight: bold;
+    width: 4.5rem;
+    text-align: right;
+}
+
+.table-wrap {
+    padding: 0 0.75rem 1.5rem 0.75rem;
+}

@@ -52,6 +52,8 @@ hr {
 h1,
 h2 {
     font-family: Impact, serif;
+    /* 渐变色 */
+    background:linear-gradient(to right, yellow 10%,pink 90%)
 }
 
 .item p {
